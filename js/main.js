@@ -7,8 +7,15 @@ window.onload=function(){
     inputBox.addEventListener("keypress", function(e){
         if(e.key === "Enter"){
             clearCards();
+            var weather = document.getElementById("weather");
+            var weatherChildren = weather.childNodes;
+            for(var i = weatherChildren.length-1; i >= 0; i--){
+                var weatherChild = weatherChildren[i];
+                weatherChild.parentNode.removeChild(weatherChild);
+    }
             console.log("User input: "+inputBox.value)
             fetchOpenWeather(inputBox.value);
+            fetchFourSquareApi(inputBox.value);
         }
     });
 };
@@ -56,20 +63,26 @@ function fetchFourSquareApi(userInput){
 
 function fetchOpenWeather(userInput){
     const apiKey = "8f406f1db4e51bc9de772cb2df5b29f1"
-    let versionDate = dateToString();
-    let cardParent = document.getElementById("cards");
-    fetch("api.openweathermap.org/data/2.5/forecast/hourly?q="+userInput+"&appid="+apiKey+"").then(resp => resp.json())
+    let parent = document.getElementById("weather")
+    fetch("http://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&appid="+apiKey+"").then(resp => resp.json())
         .then(res => {
-             Object.entries(res).forEach(entry => {
-                const [key, value] = entry;
-                console.log(key, value)
-                if(key == "response"){
-                    value["venues"].forEach(v => {
-                        //let lat = v["location"]["lat"] 
-                    });
-                };
-            });            
-        }).catch(error => console.log(error));                                                                
+            console.log(res)
+            console.log("Current weather in Halmstad is", weather)
+            
+            let weatherType = document.createElement("h3")
+            let weatherIcon = document.createElement("img")
+            let weatherTemperature = document.createElement("p")
+
+            weatherType.innerHTML = res["weather"][0]["description"]
+            weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/"+res["weather"][0]["icon"]+"@2x.png")
+            weatherTemperature.innerHTML = res["main"]["temp"].toString()+"°C"
+
+            parent.append(weatherType)
+            parent.append(weatherIcon)
+            parent.append(weatherTemperature)
+
+        })
+        .catch(error => console.log(error));                                                                
 }
 
 function dateToString(){

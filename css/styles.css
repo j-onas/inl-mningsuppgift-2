@@ -47,6 +47,26 @@ main{
     text-align:center;
 }#searchBox input:focus{outline: none;}::placeholder{color:#C0C0C0;}
 
+#weather {
+    top:0;
+    left:0;
+    position: absolute;
+    border-bottom-right-radius: 10px;
+    background-color: #DCDCDC;
+}
+
+#weather img{
+    height: 48px;
+    width: 48px;
+    float: left;
+}
+
+#weather h3{
+    white-space: nowrap;
+    float: right;
+    padding-right: 5px;
+}
+
 #cards {
     display: flex;
     flex-wrap: wrap;

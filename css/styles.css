@@ -125,9 +125,7 @@ main{
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
     }
-#card ul {
-    
-}
+
 #card p{
     font-size: 19px;
     font-weight: bold;

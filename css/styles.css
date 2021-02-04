@@ -54,6 +54,7 @@ main{
     margin-right: auto;
     margin-left: auto;
     max-width: 100%;
+    min-width: 300px; 
     width: auto;
     padding: 80px;
     height: 300;
@@ -63,9 +64,9 @@ main{
     margin: 5px;
     flex-basis: 100%;
     padding-bottom: 10px;
-    border: 1px solid #654321;
     border-radius: 15px;
     max-width: 400px;
+    min-width: 400px;
     height: 300px; 
 }  
 
@@ -80,11 +81,17 @@ main{
     padding-top: 3px;
     overflow: hidden;
     color: #CFB997;
+    border-top: 1px solid #654321;
+    border-right: 1px solid #654321;
+    border-left: 1px solid #654321;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #654321;
 }
 
 #card img {
     height: 200px;
-    width: 70%;
+    width: 100%;
 }
 
 #card div {
@@ -127,13 +134,16 @@ main{
     letter-spacing: 1px;
 }    
 
-@media screen and (max-width: 576px){
+@media screen and (max-width:996px){
     #cards {
-        max-width: 600px;
-        background-color:blue;
+        max-width: 600px; 
     }
     #card {
-        background-color: lightblue; 
+        padding:40px;
+        flex-basis: auto;
+    }
+    html {
+        overflow-y:hidden;
     }
     
 }

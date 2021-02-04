@@ -13,17 +13,32 @@ Client Secret
     <head>
         <link rel="shortcut icon" href="/img/title.ico"/>
         <title>City Travel</title>
-        <script src="/js/api/main.js"></script>
+        <script src="/js/api/main.js" charset="utf-8"></script>
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
     <body>
+        <header></header>
         <main>
-            <div id="searchBox" style="float:left;">
-                <h3>City:</h3><input id="citySearch" type="text"">
+            <div id="searchBox">
+                <input id="citySearch" type="text" placeholder="search city" onClick="this.select();">
+            </div>
+            <div id="cards">
             </div>
         </main>
+
+
+
+        
         
     </body>
 
 </html>
+
+<!-- 
+TODO - styla cards
+TOOD - Väder API
+
+
+
+-->

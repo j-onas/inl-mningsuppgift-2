@@ -12,7 +12,9 @@ window.onload=function(){
             for(var i = weatherChildren.length-1; i >= 0; i--){
                 var weatherChild = weatherChildren[i];
                 weatherChild.parentNode.removeChild(weatherChild);
-    }
+            }
+            document.getElementById("errorH").innerText = ''
+
             console.log("User input: "+inputBox.value)
             fetchOpenWeather(inputBox.value);
             fetchFourSquareApi(inputBox.value);
@@ -27,8 +29,10 @@ function fetchFourSquareApi(userInput){
     let cardParent = document.getElementById("cards");
     fetch("https://api.foursquare.com/v2/venues/search?near="+userInput+"&client_id="+clientID+"&client_secret="+clientSecret+"&v="+versionDate+"").then(resp => resp.json())
         .then(res => {
+            if(res["meta"]["code"] == 200){
              Object.entries(res).forEach(entry => {
                 const [key, value] = entry;
+                
                 if(key == "response"){
                     value["venues"].forEach(v => {
                         let lat = v["location"]["lat"]
@@ -57,8 +61,13 @@ function fetchFourSquareApi(userInput){
                         cardParent.appendChild(card)
                     });
                 };
-            });            
-        }).catch(error => console.log(error));                                                                
+            });
+        }else{
+            let errorH = document.getElementById("errorH")
+            errorH.innerText = '"'+userInput+'" not found in the API'
+        }           
+        })
+        .catch(error => console.log(error));                                                                 
     }
 
 function fetchOpenWeather(userInput){
@@ -66,21 +75,22 @@ function fetchOpenWeather(userInput){
     let parent = document.getElementById("weather")
     fetch("http://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&appid="+apiKey+"").then(resp => resp.json())
         .then(res => {
-            console.log(res)
-            console.log("Current weather in Halmstad is", weather)
-            
-            let weatherType = document.createElement("h3")
-            let weatherIcon = document.createElement("img")
-            let weatherTemperature = document.createElement("p")
+            if(res["cod"] == 200){
+                let weatherType = document.createElement("h3")
+                let weatherIcon = document.createElement("img")
+                let weatherTemperature = document.createElement("p")
 
-            weatherType.innerHTML = res["weather"][0]["description"]
-            weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/"+res["weather"][0]["icon"]+"@2x.png")
-            weatherTemperature.innerHTML = res["main"]["temp"].toString()+"°C"
+                weatherType.innerHTML = res["weather"][0]["description"]
+                weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/"+res["weather"][0]["icon"]+"@2x.png")
+                weatherTemperature.innerHTML = res["main"]["temp"].toString()+"°C"
 
-            parent.append(weatherType)
-            parent.append(weatherIcon)
-            parent.append(weatherTemperature)
-
+                parent.append(weatherType)
+                parent.append(weatherIcon)
+                parent.append(weatherTemperature)
+            }else{
+                let errorH = document.getElementById("errorH")
+                errorH.innerText += '"'+userInput+'" not found in the API'
+            }  
         })
         .catch(error => console.log(error));                                                                
 }

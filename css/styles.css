@@ -169,7 +169,6 @@ main{
         padding:0;
     }
     #card {
-        margin:0;
         margin-left: auto;
         margin-right: auto;
         flex-basis: auto;

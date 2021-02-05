@@ -13,11 +13,24 @@ window.onload=function(){
                 var weatherChild = weatherChildren[i];
                 weatherChild.parentNode.removeChild(weatherChild);
             }
-            document.getElementById("errorH").innerText = ''
+            try{
+                let errorH = document.getElementById("errorH")
+                let errorH2 = document.getElementById("errorH2")
 
+                if(errorH){
+                    errorH.remove()
+                }
+                if(errorH2){
+                    errorH2.remove()
+                }
+            }catch(Exception){
+                if(Exception instanceof TypeError){
+                    console.log(Exception.stack)
+                }
+            }
             console.log("User input: "+inputBox.value)
-            fetchOpenWeather(inputBox.value);
             fetchFourSquareApi(inputBox.value);
+            fetchOpenWeatherApi(inputBox.value);
         }
     });
 };
@@ -53,7 +66,7 @@ function fetchFourSquareApi(userInput){
                         cardAddress.setAttribute("align", "center")
                         cardAddressURL.setAttribute("href", address)
                         cardAddressURL.setAttribute("target", "_blank")
-                        cardAddressURL.innerHTML = '<p>Address</p>'
+                        cardAddressURL.innerHTML = '<p>Location</p>'
                         card.append(cardName)
                         card.append(cardImage)
                         card.append(cardAddress)
@@ -63,14 +76,17 @@ function fetchFourSquareApi(userInput){
                 };
             });
         }else{
-            let errorH = document.getElementById("errorH")
-            errorH.innerText = '"'+userInput+'" not found in the API'
+            parent = document.getElementById("errorMessages")
+            let errorH = document.createElement("h2")
+            errorH.setAttribute("id", "errorH")
+            errorH.innerText = '"'+userInput+'" not found in the city API'
+            parent.append(errorH)
         }           
         })
         .catch(error => console.log(error));                                                                 
     }
 
-function fetchOpenWeather(userInput){
+function fetchOpenWeatherApi(userInput){
     const apiKey = "8f406f1db4e51bc9de772cb2df5b29f1"
     let parent = document.getElementById("weather")
     fetch("http://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&appid="+apiKey+"").then(resp => resp.json())
@@ -88,12 +104,16 @@ function fetchOpenWeather(userInput){
                 parent.append(weatherIcon)
                 parent.append(weatherTemperature)
             }else{
-                let errorH = document.getElementById("errorH")
-                errorH.innerText += '"'+userInput+'" not found in the API'
+                parent = document.getElementById("errorMessages")
+                let errorH = document.createElement("h2")
+                errorH.setAttribute("id", "errorH2")
+                errorH.innerText = '"'+userInput+'" not found in the weather API'
+                parent.append(errorH)
             }  
         })
         .catch(error => console.log(error));                                                                
 }
+
 
 function dateToString(){
     let today = new Date();
@@ -109,7 +129,6 @@ function dateToString(){
     }
     return dateYear.toString()+dateMonth.toString()+dateDay.toString();
 }
-
 
 function clearCards() {
 

@@ -89,7 +89,7 @@ function fetchFourSquareApi(userInput){
 function fetchOpenWeatherApi(userInput){
     const apiKey = "8f406f1db4e51bc9de772cb2df5b29f1"
     let parent = document.getElementById("weather")
-    fetch("http://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&appid="+apiKey+"").then(resp => resp.json())
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&appid="+apiKey+"").then(resp => resp.json())
         .then(res => {
             if(res["cod"] == 200){
                 let weatherType = document.createElement("h3")
@@ -97,7 +97,7 @@ function fetchOpenWeatherApi(userInput){
                 let weatherTemperature = document.createElement("p")
 
                 weatherType.innerHTML = res["weather"][0]["description"]
-                weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/"+res["weather"][0]["icon"]+"@2x.png")
+                weatherIcon.setAttribute("src", "https://openweathermap.org/img/wn/"+res["weather"][0]["icon"]+"@2x.png")
                 weatherTemperature.innerHTML = res["main"]["temp"].toString()+"°C"
 
                 parent.append(weatherType)

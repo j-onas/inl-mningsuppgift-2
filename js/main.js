@@ -102,6 +102,8 @@ function fetchOpenWeatherApi(userInput){
     //Skapar en request som frågar efter väder i staden userInput
     //Units=metric gör om till celsius, default vad kelvin
     //De kallar sin status_kod för "cod" av någon anledning
+    //Här använder jag inget foreach entry som i förra
+    //eftersom jag ville testa fler sätt att pilla med fetch
     fetch("https://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&lang=se&appid="+apiKey+"").then(resp => resp.json())
         .then(res => {
             if(res["cod"] == 200){

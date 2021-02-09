@@ -60,7 +60,7 @@ main{
 #weather {
     top:0;
     left:0;
-    position: absolute;
+    position: fixed;
     border-bottom-right-radius: 10px;
     background-color: #DCDCDC;
 }

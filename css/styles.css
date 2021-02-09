@@ -133,12 +133,12 @@ main{
     padding-bottom: 5px;
     padding-top: 3px;
     overflow: hidden;
-    color: #CFB997;
-    border: 1px solid #FF5E00;
-    border-color: #FF5E00;
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 41, 255, 0.3);
+    border-color: rgba(0, 41, 255, 0.3);
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    background-color: #FF5E00;
+    background-color: rgba(0, 41, 255, 0.3);
 }
 
 #card img {
@@ -146,7 +146,7 @@ main{
     width: 400px;
     position: absolute;
     z-index: -1;
-    border: 1px solid #FF5E00;
+    border: 1px solid rgba(0, 41, 255, 0.3);
 }
 
 #card div {
@@ -163,20 +163,20 @@ main{
     margin-left: 0px;
     
     text-decoration: none;
-    color:  #CFB997 !important;
+    color:  rgba(255, 255, 255, 0.5) !important;
     height: auto;
     text-transform: uppercase;
-    background-color: #FF5E00;
+    background-color: rgba(0, 41, 255, 0.3);
     padding: 10px;
     border-top-right-radius: 5px;
     display: block;
     float: left;
-    border: 1px solid #FF5E00;
+    border: 1px solid rgba(0, 41, 255, 0.3);
 }#card a:hover {
     margin-top: 0px;
-    color: #FF5E00 !important;
-    background:  rgb(189, 186, 186);
-    border: 1px solid #FF5E00;
+    color: white !important;
+    background:  rgba(0, 41, 255, 0.5);
+    border: 1px solid rgba(0, 41, 255, 0.3);
     
     }
 

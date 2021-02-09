@@ -15,8 +15,10 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   font-weight: normal;
   
 }
+
 body {
     background-color: rgb(189, 186, 186);
+    min-width: 500px !important;
 }
 
 
@@ -25,7 +27,7 @@ ol, ul {
 }
 
 img {
-  max-width: 100%;
+  width: 400px;
   height: auto;
 }
 
@@ -76,17 +78,28 @@ main{
     float: right;
     padding-right: 5px;
 }
-
-#cards {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: auto;
+@media (min-width:1247px){
+    #cards {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 100%;
+        min-width: 300px; 
+        width: 1230px;
+        height: 300;
+        /*background-color: red;*/
+    } 
+}
+@media (max-width:1246px){
+ #cards {
+    padding:0;
+    margin:0;
+    width: 400;
     margin-left: auto;
-    max-width: 100%;
-    min-width: 300px; 
-    width: auto;
-    padding-left: 20%;
-    height: 300;
+    margin-right: auto;
+    /*background-color: blue;*/
+    }
 }
 
 #card {
@@ -97,6 +110,8 @@ main{
     min-width: 400px;
     height: 250px; 
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
 }  
 
 
@@ -162,7 +177,7 @@ main{
     letter-spacing: 1px;
 }    
 
-@media screen and (max-width:996px){
+/*@media screen and (max-width:996px){
     #cards {
         max-width: 600px; 
         margin:0;
@@ -177,7 +192,7 @@ main{
         overflow-x:hidden;
     }
     
-}
+}*/
 /*#loading {
     position: relative;
     top:0;

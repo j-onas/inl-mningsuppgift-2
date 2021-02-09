@@ -90,9 +90,9 @@ main{
 
 @media (max-width:1246px){
     #cards {
-        padding-top: 100px;
         padding:0;
         margin:0;
+        padding-top: 100px;
         width: 100%;
         /*background-color: blue;*/
         margin-left: auto;

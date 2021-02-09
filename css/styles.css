@@ -59,6 +59,7 @@ main{
     position: fixed;
     border-bottom-right-radius: 10px;
     background-color: #DCDCDC;
+    z-index: 2;
 }
 
 #weather img{
@@ -72,6 +73,7 @@ main{
     float: right;
     padding-right: 5px;
 }
+
 @media (min-width:1247px){
     #cards {
         display: flex;
@@ -161,12 +163,11 @@ main{
 
 #card a {
     margin-left: 0px;
-    
     text-decoration: none;
     color:  rgba(255, 255, 255, 0.5) !important;
     height: auto;
     text-transform: uppercase;
-    background-color: rgba(0, 41, 255, 0.3);
+    background-color: #848ecf;
     padding: 10px;
     border-top-right-radius: 5px;
     display: block;
@@ -175,7 +176,7 @@ main{
 }#card a:hover {
     margin-top: 0px;
     color: white !important;
-    background:  rgba(0, 41, 255, 0.5);
+    background:  #848ecf;
     border: 1px solid rgba(0, 41, 255, 0.3);
     
     }
@@ -185,30 +186,3 @@ main{
     font-weight: bold;
     letter-spacing: 1px;
 }    
-
-/*@media screen and (max-width:996px){
-    #cards {
-        max-width: 600px; 
-        margin:0;
-        padding:0;
-    }
-    #card {
-        margin-left: auto;
-        margin-right: auto;
-        flex-basis: auto;
-    }
-    html, body, main {
-        overflow-x:hidden;
-    }
-    
-}*/
-/*#loading {
-    position: relative;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    margin:auto;
-    height: 35%;
-    width: 35%;
-}*/

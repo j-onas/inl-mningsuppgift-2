@@ -73,11 +73,10 @@ main{
     float: right;
     padding-right: 5px;
 }
-#cards {
-    padding-top: 100px;
-}
+
 @media (min-width:1247px){
     #cards {
+        padding-top: 100px;
         display: flex;
         flex-wrap: wrap;
         margin-right: auto;
@@ -91,6 +90,7 @@ main{
 
 @media (max-width:1246px){
     #cards {
+        padding-top: 100px;
         padding:0;
         margin:0;
         width: 100%;

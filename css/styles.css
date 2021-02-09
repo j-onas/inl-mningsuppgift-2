@@ -73,7 +73,9 @@ main{
     float: right;
     padding-right: 5px;
 }
-
+#cards {
+    padding-top: 100px;
+}
 @media (min-width:1247px){
     #cards {
         display: flex;

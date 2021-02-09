@@ -72,6 +72,15 @@ main{
     white-space: nowrap;
     float: right;
     padding-right: 5px;
+    text-transform: capitalize;
+    margin-top: 15px;
+}
+
+#weather p {
+    font-size: 13px;
+    position: absolute;
+    margin-left: 45px;
+    margin-top: 0px;
 }
 
 @media (min-width:1247px){

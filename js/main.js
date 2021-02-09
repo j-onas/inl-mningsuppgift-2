@@ -1,5 +1,6 @@
 'use strict';
 
+//Börja lyssna på keypress events EFTER att sidan laddats in
 window.onload=function(){
     let inputBox = document.querySelector("input");
     let loading = document.getElementById("loading");
@@ -40,6 +41,13 @@ function fetchFourSquareApi(userInput){
     const clientSecret = "1X4SB3KHTPVBK1VG3KEJJTNARF5CJTZUVAYVKGQWOVEL1L3I"
     let versionDate = dateToString();
     let cardParent = document.getElementById("cards");
+
+    //Hämta & gör om data till JSON-format
+    //Söker efter sevärdigheter nära userInput
+    //Använder v (venues) för att plocka ut data- 
+    //ur min request
+    //Får vi status koden 200 så går vi vidare med-
+    //att skapa de superfina korten
     fetch("https://api.foursquare.com/v2/venues/search?near="+userInput+"&client_id="+clientID+"&client_secret="+clientSecret+"&v="+versionDate+"").then(resp => resp.json())
         .then(res => {
             if(res["meta"]["code"] == 200){
@@ -86,6 +94,9 @@ function fetchFourSquareApi(userInput){
         .catch(error => console.log(error));                                                                 
     }
 
+    //Skapar en request som frågar efter väder i staden userInput
+    //Units=metric gör om till celsius, default vad kelvin
+    //De kallar sin status_kod för "cod" av någon anledning
 function fetchOpenWeatherApi(userInput){
     const apiKey = "8f406f1db4e51bc9de772cb2df5b29f1"
     let parent = document.getElementById("weather")
@@ -115,6 +126,9 @@ function fetchOpenWeatherApi(userInput){
 }
 
 
+//Behövde datum i foursquare requesten
+//Så valde göra en funktion istället
+//För att göra api funktionen 10 rader längre
 function dateToString(){
     let today = new Date();
     let dateYear = today.getUTCFullYear();
@@ -130,6 +144,9 @@ function dateToString(){
     return dateYear.toString()+dateMonth.toString()+dateDay.toString();
 }
 
+//Saxat ut min förra uppgift
+//Plockar bort alla div-
+//med id cards
 function clearCards() {
 
     //Hämta div-taggen som heter cards och ge den variablen cardParent

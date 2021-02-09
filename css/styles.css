@@ -18,7 +18,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 
 body {
     background-color: rgb(189, 186, 186);
-    min-width: 500px !important;
+    min-width: 535px !important;
 }
 
 
@@ -85,7 +85,7 @@ main{
         margin-right: auto;
         margin-left: auto;
         max-width: 100%;
-        min-width: 300px; 
+        min-width: 535px; 
         width: 1230px;
         height: 300;
         /*background-color: red;*/
@@ -95,7 +95,7 @@ main{
  #cards {
     padding:0;
     margin:0;
-    width: 400;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
     /*background-color: blue;*/

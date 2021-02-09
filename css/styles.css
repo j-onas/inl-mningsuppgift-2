@@ -18,19 +18,9 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 
 body {
     background-color: rgb(189, 186, 186);
-    min-width: 600px !important; 
     overflow-x: hidden;
 }
 
-
-ol, ul {
-  list-style: none;
-}
-
-img {
-  width: 400px;
-  height: auto;
-}
 
 main{
     width:100%;
@@ -39,10 +29,11 @@ main{
 }
 
 #searchBox {
-    margin-right: auto;
-    margin-left: auto; 
     margin-top: 100px;
-    max-width: 600px;
+    width: 500px;
+    /*background-color: green; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #errorH, #errorH2 {
@@ -50,10 +41,12 @@ main{
     width: auto;
     color: red;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 #searchBox input{
     height: 50px;
-    width: 100%;
+    width: 500px;
     border-radius: 25px;
     border: 1px solid #E4E4E4;
     font-size: 30px;
@@ -85,21 +78,36 @@ main{
         flex-wrap: wrap;
         margin-right: auto;
         margin-left: auto;
-        max-width: 100%;
         min-width: 600px; 
         width: 1230px;
         height: 300;
         /*background-color: red;*/
     } 
 }
+
 @media (max-width:1246px){
- #cards {
-    padding:0;
-    margin:0;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    /*background-color: blue;*/
+    #cards {
+        padding:0;
+        margin:0;
+        width: 100%;
+        /*background-color: blue;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #card {
+        margin: 0;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #searchBox {
+        width: 400px;
+    }
+    #searchBox input{
+        margin-left: auto;
+        margin-right: auto;
+        width:100%;
     }
 }
 

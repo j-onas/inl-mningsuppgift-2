@@ -44,7 +44,7 @@ main{
     margin-left: auto;
     margin-right: auto;
 }
-#searchBox input{
+#searchBox #citySearch{
     height: 50px;
     width: 500px;
     border-radius: 25px;
@@ -53,7 +53,24 @@ main{
     text-align:center;
 }#searchBox input:focus{outline: none;}::placeholder{color:#C0C0C0;}
 
+#searchOptions {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#searchbox ul {
+    /*Blabla*/
+}
+#searchBox li {
+    display: inline-block;
+    width: 154px;
+}
+
 #weather {
+    visibility: hidden;
     top:0;
     left:0;
     position: fixed;
@@ -88,6 +105,7 @@ main{
 
 @media (min-width:1247px){
     #cards {
+        visibility: hidden;
         padding-top: 100px;
         display: flex;
         flex-wrap: wrap;
@@ -102,6 +120,7 @@ main{
 
 @media (max-width:1246px){
     #cards {
+        visibility: hidden;
         padding:0;
         margin:0;
         padding-top: 100px;

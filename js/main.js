@@ -148,6 +148,29 @@ function dateToString(){
     return dateYear.toString()+dateMonth.toString()+dateDay.toString()
 }
 
+function showWeather() {
+    if(document.getElementById("checkboxWeather").checked) {
+        document.getElementById("weather").style.visibility = "visible"
+    }else{
+        document.getElementById("weather").style.visibility = "hidden"
+    }
+}
+
+function showAttractions() {
+    if(document.getElementById("checkboxAttractions").checked) {
+        document.getElementById("cards").style.visibility = "visible"
+    }else{
+        document.getElementById("cards").style.visibility = "hidden"
+        document.getElementById("cards").style.overflow = "hidden"
+    }
+}
+
+function sortByName() {
+    
+}
+
+
+
 //Saxat ut min förra uppgift
 //Plockar bort alla div-
 //med id cards

@@ -13,6 +13,19 @@
         <main>
             <div id="searchBox">
                 <input id="citySearch" type="text" placeholder="search city" onClick="this.select();">
+                <div id="searchOptions">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="checkboxWeather" onclick="showWeather()"><h5>Weather</h5>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxAttractions" onclick="showAttractions()"><h5>Attractions</h5>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxSortbyname" onclick="sortByName()"><h5>Sort by Name</h5>
+                        </li>
+                    </ul>
+             </div>
             </div>
 
             <!-- Måste finnas eftersom jag inte skapar innan error call i js! -->
@@ -30,7 +43,7 @@
 
 <!--
 Todo{
-Kommentarer
+Sortera 
 
 }
 

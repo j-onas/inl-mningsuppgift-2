@@ -56,17 +56,15 @@ main{
 #searchOptions {
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
-#searchbox ul {
-    /*Blabla*/
-}
+
 #searchBox li {
     display: inline-block;
-    width: 154px;
+    width: 25%;
 }
 
 #weather {
@@ -142,7 +140,11 @@ main{
     #searchBox input{
         margin-left: auto;
         margin-right: auto;
-        width:100%;
+        width: 100%;
+    }
+
+    #searchOptions {
+        width: 500px;
     }
 }
 

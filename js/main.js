@@ -50,11 +50,15 @@ function fetchFourSquareApi(userInput){
     //att skapa de superfina korten
     fetch("https://api.foursquare.com/v2/venues/search?near="+userInput+"&client_id="+clientID+"&client_secret="+clientSecret+"&v="+versionDate+"").then(resp => resp.json())
         .then(res => {
+            //res["response"].sort((a,b) => a.venue.name > b.venue.name ? 1: -1)
             if(res["meta"]["code"] == 200){
+                //console.log(res)
              Object.entries(res).forEach(entry => {
                 const [key, value] = entry
-                
                 if(key == "response"){
+                    if(document.getElementById("checkboxSortbyname").checked){
+                        value["venues"].sort((a,b) => a.name > b.name ? 1: -1)
+                    }
                     value["venues"].forEach(v => {
                         let lat = v["location"]["lat"]
                         let lng = v["location"]["lng"]
@@ -68,6 +72,7 @@ function fetchFourSquareApi(userInput){
                         
 
                         card.setAttribute("id", "card")
+                        card.setAttribute("name", name)
                         cardName.innerHTML = name
                         cardImage.setAttribute("src", "img/placeholder.jpg")
                         cardImage.setAttribute("alt", name)
@@ -104,7 +109,8 @@ function fetchOpenWeatherApi(userInput){
     //De kallar sin status_kod för "cod" av någon anledning
     //Här använder jag inget foreach entry som i förra
     //eftersom jag ville testa fler sätt att pilla med fetch
-    fetch("https://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&lang=se&appid="+apiKey+"").then(resp => resp.json())
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+userInput+"&units=metric&lang=se&appid="+apiKey+"")
+        .then(resp => resp.json())
         .then(res => {
             if(res["cod"] == 200){
                 let weatherType = document.createElement("h3")
@@ -164,11 +170,6 @@ function showAttractions() {
         document.getElementById("cards").style.overflow = "hidden"
     }
 }
-
-function sortByName() {
-    
-}
-
 
 
 //Saxat ut min förra uppgift
